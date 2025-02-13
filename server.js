@@ -6,7 +6,8 @@ import authRouter from './routes/authRoutes.js';
 import logger from "morgan"
 import dbConnection from "./config/dbConnect.js";
 import helmet from "helmet"
-
+import globalErrorHandler from "./utils/errorHandler.js";
+ 
 
 // ----------- db connection and load env variables --------------
 dotenv.config()
@@ -24,9 +25,13 @@ app.use(express.json());
 // ------------ api Routes --------------
 app.use("/api/auth", authRouter);
 
+
+// ------------ global Error Handling midleware -------------- 
+app.use(globalErrorHandler);
+
 //----------- sever --------------
-const PORT = process.env.PORT || 5000
-app.listen(PORT,() => {
+const PORT = process.env.PORT || 4000
+app.listen(PORT, () => {
     console.log(`server running on port : ${PORT}`);
 })
 
