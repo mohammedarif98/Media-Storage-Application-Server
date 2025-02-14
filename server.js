@@ -16,14 +16,19 @@ dbConnection();
 const app = express();
 
 // ----------- Middleware setup --------------- 
-app.use(cors());
+app.use(cors({
+    origin: process.env.CLIENT_URL,
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true,
+}));
+
 app.use(helmet());
 app.use(logger('dev'));
 app.use(cookieParser());
 app.use(express.json());
  
 // ------------ api Routes --------------
-app.use("/api/auth", authRouter);
+app.use("/api/auth/user", authRouter);
 
 
 // ------------ global Error Handling midleware -------------- 

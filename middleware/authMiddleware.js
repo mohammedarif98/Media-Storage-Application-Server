@@ -3,6 +3,7 @@ import ApiError from "../utils/apiError.js";
 import User from "../models/userModel.js";
 
 
+
 export const authenticateUser = async (req, res, next) => {
   try {
     const token = req.cookies["jwt-token"] || req.headers["authorization"]?.split(" ")[1];
