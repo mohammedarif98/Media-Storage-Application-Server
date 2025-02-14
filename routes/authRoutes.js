@@ -1,5 +1,5 @@
 import express from "express";
-import { getUserProfile, userLogin, userLogout, userRegistration } from "../controllers/authController.js";
+import { getDashboard, getUserProfile, userLogin, userLogout, userRegistration } from "../controllers/authController.js";
 import { authenticateUser } from "../middleware/authMiddleware.js";
 
 
@@ -10,7 +10,8 @@ router.post('/user-login', userLogin);
 router.post('/user-logout', userLogout);
 
 
-router.get('/user-profile', authenticateUser,getUserProfile);
+router.get('/user-dashboard', authenticateUser,getDashboard); 
+router.get('/user-profile', authenticateUser,getUserProfile); 
 
 
 export default router;

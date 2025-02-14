@@ -100,10 +100,29 @@ export const getUserProfile = async(req, res, next) => {
         res.status(201).json({
             status: "success",
             message: "User data get successfully",
-            data: user
+            data: userData
         })
     }catch(error){
         console.log(error.message);
+        next(error)
+    }
+}
+
+//--------------- user home page --------------------
+export const getDashboard = async(req, res, next) => {
+    try{
+        const userId = req.user.id;
+
+        const user = await User.findById(userId).select("-password");
+        if(!user) return next(new ApiError("user is not found", 404));
+
+        res.status(201).json({
+            status: "success",
+            message: "Welcome to your home",
+            data: user
+        })
+    }catch(error){
+        console.log("Error in user home", error.message);
         next(error)
     }
 }

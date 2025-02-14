@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import authRouter from './routes/authRoutes.js';
+import mediaRouter from './routes/mediaRoutes.js';
 import logger from "morgan"
 import dbConnection from "./config/dbConnect.js";
 import helmet from "helmet"
@@ -28,7 +29,8 @@ app.use(cookieParser());
 app.use(express.json());
  
 // ------------ api Routes --------------
-app.use("/api/auth/user", authRouter);
+app.use("/api/auth/user", authRouter); 
+app.use("/api/user", mediaRouter);
 
 
 // ------------ global Error Handling midleware -------------- 

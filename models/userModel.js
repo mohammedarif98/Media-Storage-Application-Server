@@ -2,8 +2,7 @@ import mongoose from "mongoose";
 import { comparePassword, hashPassword } from "../utils/passwordUtils.js";
 
 
-const userSchema = new mongoose.Schema(
-  {
+const userSchema = new mongoose.Schema({
     username: {
       type: String,
       required: [true, "Username is required"],
