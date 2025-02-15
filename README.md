@@ -32,5 +32,4 @@ This is the backend of the **Media Capture and Storage Web Application**, built 
 ## Setup Instructions
 
 - **hithub repository link**: git clone https://github.com/your-username/media-capture-storage-app.git
-- **Clone the repository**: git clone https://github.com/your-username/media-capture-storage-app.git
    
