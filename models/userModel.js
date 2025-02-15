@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import { comparePassword, hashPassword } from "../utils/passwordUtils.js";
-
+import Media from "./mediaModel.js";
 
 const userSchema = new mongoose.Schema({
     username: {
@@ -31,6 +31,10 @@ const userSchema = new mongoose.Schema({
       minlength: [6, "Password must be at least 6 characters long"],
       select: false,
     },
+    media: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Media', 
+  }],
   },
   { timestamps: true }
 );

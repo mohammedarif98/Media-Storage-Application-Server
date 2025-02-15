@@ -1,8 +1,9 @@
+import Media from '../models/mediaModel.js';
 import User from '../models/userModel.js';
 import ApiError from '../utils/apiError.js';
 import { generateToken } from '../utils/jwtUtils.js';
 import { comparePassword } from '../utils/passwordUtils.js';
-
+import mongoose from 'mongoose';
 
 //----------------- user registration ------------------
 export const userRegistration = async(req, res, next) => {
@@ -91,22 +92,40 @@ export const userLogout = async(req, res, next) => {
 
 
 //----------------- user profile details ------------------
-export const getUserProfile = async(req, res, next) => {
-    try{
-        const userId = req.user.id;
-        const user = await User.findById(userId).select("-password");
-        if(!user) return next( new ApiError("User not found", 404));
-
-        res.status(201).json({
-            status: "success",
-            message: "User data get successfully",
-            data: userData
-        })
-    }catch(error){
-        console.log(error.message);
-        next(error)
+export const getUserProfile = async (req, res, next) => {
+    try {
+      const userId = req.user.id;
+  
+      const user = await User.findById(userId).select("-password");
+  
+      const mediaStats = await Media.aggregate([
+        { $match: { user: new mongoose.Types.ObjectId(userId) } },
+        {
+          $group: {
+            _id: null,
+            totalMedia: { $sum: 1 },
+            totalImages: { 
+              $sum: { $cond: [{ $eq: ["$fileType", "image"] }, 1, 0] }
+            },
+            totalVideos: { 
+              $sum: { $cond: [{ $eq: ["$fileType", "video"] }, 1, 0] }
+            }
+          }
+        }
+      ]);
+  
+      res.status(200).json({
+        status: "success",
+        data: {
+          user,
+          mediaStats: mediaStats[0] || { totalMedia: 0, totalImages: 0, totalVideos: 0 }
+        }
+      });
+    } catch (error) {
+      next(error);
     }
-}
+  };
+
 
 //--------------- user home page --------------------
 export const getDashboard = async(req, res, next) => {
