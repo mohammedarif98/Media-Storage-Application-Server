@@ -26,10 +26,35 @@ This is the backend of the **Media Capture and Storage Web Application**, built 
 ## Deployment
 - **Backend Deploy**: backend hosted in Render;
 
-
 ---
 
 ## Setup Instructions
-
-- **hithub repository link**: git clone https://github.com/your-username/media-capture-storage-app.git
+- **github repository link**: git clone https://github.com/your-username/media-capture-storage-app.git
    
+---
+
+## Project installation
+- **install dependencies** : npm install.
+- **backend start** : npm run dev 
+  
+- **create .env file**: .env
+   # -------- server configration ---------
+   PORT=3000
+   NODE_ENV=production
+   MONGO_URI= use your mongodb atlas connection string
+   CLIENT_URL=http://localhost:5173
+   
+   # -------- JWT Configuration ---------
+   JWT_SECRET=your_jwt_secret_key
+   JWT_EXPIRES_IN=1h
+   COOKIE_EXPIRES_IN=3600000
+   
+   # ---------- AWS configration ----------
+   AWS_ACCESS_KEY_ID=your_aws_access_key
+   AWS_SECRET_ACCESS_KEY=your_aws_secret_key
+   AWS_REGION=your_aws_region
+   AWS_BUCKET_NAME=your_s3_bucket_name
+   
+   # ----------- Password Hashing -------------
+   BCRYPT_SALT_ROUNDS=12
+     
