@@ -38,7 +38,7 @@ This is the backend of the **Media Capture and Storage Web Application**, built 
 - **backend start** : npm run dev 
   
 - **create .env file**: .env
-   -------- server configration ---------
+   ##-------- server configration ---------##
    - PORT=3000
    - NODE_ENV=production
    - MONGO_URI= use your mongodb atlas connection string
