@@ -29,7 +29,8 @@ This is the backend of the **Media Capture and Storage Web Application**, built 
 ----
 
 ## Project installation
-- **Clone github repository link**: git clone https://github.com/your-username/media-capture-storage-app.git
+- **Clone github repository link**: git clone https://github.com/mohammedarif98/Media-Storage-Application-Server.git
+
 - **install dependencies** : npm install.
 - **backend start** : npm run dev 
 - **create .env file** : .env
