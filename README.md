@@ -26,19 +26,15 @@ This is the backend of the **Media Capture and Storage Web Application**, built 
 ## Deployment
 - **Backend Deploy**: backend hosted in Render;
 
----
-
-## Setup Instructions
-- **github repository link**: git clone https://github.com/your-username/media-capture-storage-app.git
-   
----
+----
 
 ## Project installation
+- **Clone github repository link**: git clone https://github.com/your-username/media-capture-storage-app.git
 - **install dependencies** : npm install.
 - **backend start** : npm run dev 
-  
-- **create .env file**: .env
-   ##-------- server configration ---------##
+- **create .env file** : .env
+- 
+   -------- server configration ---------
    - PORT=3000
    - NODE_ENV=production
    - MONGO_URI= use your mongodb atlas connection string
