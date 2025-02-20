@@ -26,8 +26,7 @@ export const uploadToS3 = async (fileBuffer, fileName, contentType) => {
             Bucket: process.env.AWS_BUCKET_NAME,
             Key: fileName,
             Body: fileBuffer,
-            ContentType: contentType,
-            // ACL: 'public-read', 
+            ContentType: contentType, 
         };
 
         await s3Client.send(new PutObjectCommand(params));

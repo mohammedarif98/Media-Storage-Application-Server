@@ -5,6 +5,7 @@ import { generateToken } from '../utils/jwtUtils.js';
 import { comparePassword } from '../utils/passwordUtils.js';
 import mongoose from 'mongoose';
 
+
 //----------------- user registration ------------------
 export const userRegistration = async(req, res, next) => {
     try{

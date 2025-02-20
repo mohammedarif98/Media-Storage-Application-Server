@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import { comparePassword, hashPassword } from "../utils/passwordUtils.js";
-import Media from "./mediaModel.js";
+
 
 const userSchema = new mongoose.Schema({
     username: {

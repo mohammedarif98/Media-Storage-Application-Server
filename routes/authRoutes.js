@@ -10,7 +10,7 @@ router.post('/user-login', userLogin);
 router.post('/user-logout', userLogout);
 
 
-router.get('/user-dashboard', authenticateUser,getDashboard); 
+router.get('/user-dashboard', authenticateUser,getDashboard);  
 router.get('/user-profile', authenticateUser,getUserProfile); 
 
 
